@@ -1,0 +1,8 @@
+**/isaac
+
+.vscode/.browse.*
+nimsuggest.log
+
+**/nimcache/**
+
+.DS_Store
