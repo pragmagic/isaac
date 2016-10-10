@@ -106,3 +106,7 @@ proc nextU32*(generator: IsaacGenerator): uint32 =
     generator.regen()
   result = generator.results[generator.nextIdx]
   inc generator.nextIdx
+
+proc randomUint32*(generator: IsaacGenerator): uint32 {.inline.} =
+  ## Alias for ``nextU32``. Added for compatibility with nim-random library.
+  result = generator.nextU32()
