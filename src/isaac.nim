@@ -3,14 +3,14 @@
 # A translation of C implementation: http://burtleburtle.net/bob/c/readable.c
 # It has been tested to produce the same results with zero seed
 
-const isaacStateSize = 256
+const isaacStateSize = 256'u32
 
 type
   IsaacGenerator* = ref object
     state: array[isaacStateSize, uint32]
     results: array[isaacStateSize, uint32]
     aa,bb,cc: uint32
-    nextIdx: int
+    nextIdx: uint32
 
 template mix(a, b, c, d, e, f, g, h: uint32) =
   a = a xor (b shl 11)
