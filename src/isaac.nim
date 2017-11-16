@@ -46,7 +46,7 @@ proc regen(gen: IsaacGenerator) =
   inc cc # cc just gets incremented once per 256 results
   bb = bb + cc # then combined with bb
 
-  for i in 0..<isaacStateSize:
+  for i in 0'u32..<isaacStateSize:
     let x = gen.state[i]
     case (i and 3):
     of 0: aa = aa xor (aa shl 13)
@@ -67,7 +67,7 @@ proc regen(gen: IsaacGenerator) =
 
 template initPass(seed, result: array[isaacStateSize, uint32];
                   a, b, c, d, e, f, g, h: uint32) =
-  for i in countup(0, isaacStateSize - 1, 8):
+  for i in countup(0'u32, isaacStateSize - 1, 8):
     a += seed[i]
     b += seed[i + 1]
     c += seed[i + 2]
